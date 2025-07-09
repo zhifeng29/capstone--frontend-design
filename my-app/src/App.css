@@ -1,0 +1,491 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* background: linear-gradient(135deg, #5D3F6A, #8E44AD, #5D3F6A); */
+  background: linear-gradient(135deg, #8301ba, #e0b5f2, #1a0124);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+header {
+  padding: 20px 40px;
+}
+
+.login-register {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+/* Base auth button styles */
+.auth-btn {
+  display: inline-block;
+  border-radius: 50px;
+  padding: 10px 25px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  /*border: 2px solid; /* Removed color value here */
+  border: 2px solid transparent; /* Use transparent border for consistent sizing */
+  background: rgba(255, 255, 255, 0.1);
+  text-align: center;
+  color: white;
+}
+
+.auth-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+}
+
+.auth-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.auth-btn:hover::before {
+  left: 100%;
+}
+
+/* Login button specific styles */
+.login-btn {
+  background: rgba(149, 52, 219, 0.85) !important; 
+  border-color: rgba(92, 0, 138, 0.9);
+}
+
+.login-btn:hover {
+  background: rgba(105, 29, 156, 0.95) !important;
+}
+
+/* Register button specific styles */
+.register-btn {
+  background: rgba(51, 73, 182, 0.85) !important; 
+  border-color: rgba(0, 54, 90, 0.9);
+}
+
+.register-btn:hover {
+  background: rgba(27, 23, 148, 0.95) !important; 
+}
+
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  padding: 20px;
+}
+
+.logo-container {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.logo {
+  max-width: 600px;
+  width: 90%;
+  height: auto;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.3));
+}
+
+.explore-btn {
+  background: #9B59B6;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 18px 50px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  margin-top: 30px;
+}
+
+.explore-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+}
+
+.explore-btn:hover {
+  background: #8E44AD;
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.explore-btn:hover::before {
+  left: 100%;
+}
+
+/* Background animation */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .logo {
+    max-width: 400px;
+  }
+  
+  .explore-btn {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+  }
+  
+  .auth-btn {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    max-width: 300px;
+  }
+  
+  .login-register {
+    gap: 12px;
+  }
+  
+  header {
+    padding: 15px 20px;
+  }
+}
+
+/* Login Page Specific Styles */
+.login-app {
+  background: linear-gradient(135deg, #8301ba, #e0b5f2, #1a0124);
+}
+
+.login-main {
+  padding-top: 30px;
+}
+
+.login-form-container {
+  max-width: 500px;
+  width: 90%;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.form-control {
+  padding: 15px 20px;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.2);
+  color: white;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #9B59B6;
+  box-shadow: 0 0 0 3px rgba(155, 89, 182, 0.3);
+}
+
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.form-links {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.form-links a {
+  color: #e0b5f2;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.form-links a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.left-link {
+  display: flex;
+  gap: 5px;
+  color: white;
+}
+
+.right-link {
+  text-align: right;
+}
+
+.login-submit-btn {
+  background: #9B59B6;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 16px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.login-submit-btn:hover {
+  background: #8E44AD;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.home-btn {
+  background: rgba(149, 52, 219, 0.85);
+  border-color: rgba(92, 0, 138, 0.9);
+}
+
+.home-btn:hover {
+  background: rgba(105, 29, 156, 0.95);
+}
+
+/* Responsive adjustments for login page */
+@media (max-width: 768px) {
+  .login-form-container {
+    padding: 30px;
+  }
+  
+  .form-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .left-link, .right-link {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .login-submit-btn {
+    padding: 14px;
+    font-size: 1.1rem;
+  }
+}
+
+/* Register Page Specific Styles */
+.register-app {
+  background: linear-gradient(135deg, #8301ba, #e0b5f2, #1a0124);
+}
+
+.register-main {
+  padding-top: 30px;
+}
+
+.register-form-container {
+  max-width: 500px;
+  width: 90%;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Additional styles for register page */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.form-control {
+  padding: 15px 20px;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.2);
+  color: white;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #9B59B6;
+  box-shadow: 0 0 0 3px rgba(155, 89, 182, 0.3);
+}
+
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.form-links {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.form-links a {
+  color: #e0b5f2;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.form-links a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.left-link {
+  display: flex;
+  gap: 5px;
+  color: white;
+}
+
+.right-link {
+  text-align: right;
+}
+
+.register-submit-btn {
+  background: #9B59B6;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 16px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.register-submit-btn:hover {
+  background: #8E44AD;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Responsive adjustments for register page */
+@media (max-width: 768px) {
+  .register-form-container {
+    padding: 30px;
+  }
+  
+  .form-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .left-link, .right-link {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .register-submit-btn {
+    padding: 14px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .register-form-container {
+    padding: 25px 20px;
+  }
+  
+  .form-control {
+    padding: 12px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-form-container {
+    padding: 25px 20px;
+  }
+  
+  .form-control {
+    padding: 12px 15px;
+  }
+}
+
+/* Make Link components look like buttons */
+.auth-btn {
+  display: inline-block;
+  /* ... (rest of your button styles remain the same) ... */
+}
