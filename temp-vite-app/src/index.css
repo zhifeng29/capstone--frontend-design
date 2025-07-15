@@ -1,0 +1,75 @@
+/* Global styles that apply to all components */
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #8301ba, #e0b5f2, #1a0124);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+header {
+  padding: 20px 40px;
+}
+
+.login-register {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+/* Base auth button styles */
+.auth-btn {
+  display: inline-block;
+  border-radius: 50px;
+  padding: 10px 25px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  /*border: 2px solid; /* Removed color value here */
+  border: 2px solid transparent; /* Use transparent border for consistent sizing */
+  background: rgba(255, 255, 255, 0.1);
+  text-align: center;
+  color: white;
+}
+
+.auth-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+}
+
+.auth-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.auth-btn:hover::before {
+  left: 100%;
+}
+/* ... other shared styles ... */
